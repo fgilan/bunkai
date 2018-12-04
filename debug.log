@@ -1,0 +1,2 @@
+[1204/202025.368:ERROR:process_reader_win.cc(123)] NtOpenThread: {アクセス拒否} プロセスはオブジェクトのアクセスを要求しましたが、アクセス権が与えられていません。 (0xc0000022)
+[1204/202025.371:ERROR:exception_snapshot_win.cc(88)] thread ID 15064 not found in process
