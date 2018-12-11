@@ -14,6 +14,11 @@ sec = driver.find_element_by_class_name("module--content")
 links = sec.find_elements_by_tag_name('a')
 links = [link.get_attribute('href') for link in links]
 
+#get most recent title
+with open('nhk_articles_new.csv', 'r', encoding='utf-8') as file:
+    reader = csv.reader(file)
+    recent_title = list(reader)[-1][0]
+
 with open('nhk_articles_new.csv', 'a', encoding='utf-8') as file:
     articles = []
     writer = csv.writer(file, delimiter=',', lineterminator='\n')
@@ -27,6 +32,9 @@ with open('nhk_articles_new.csv', 'a', encoding='utf-8') as file:
             continue
         #get title
         title = driver.find_element_by_class_name('content--title').text
+        #check if already in database
+        if title == recent_title:
+            break
         info.append(title)
         #get date
         date = driver.find_elements_by_tag_name('time')

@@ -5,9 +5,11 @@ app = Flask(__name__)
 
 df1 = pd.read_csv('nhk_articles_toku.csv', header=None)
 df2 = pd.read_csv('nhk_articles_newsup.csv', header=None)
+df3 = pd.read_csv('nhk_articles_new.csv', header=None)
 articles1 = list(df1.iloc[:,2].values)
 articles2 = list(df2.iloc[:,2].values)
-articles = articles1 + articles2
+articles3 = list(df3.iloc[:,2].values)
+articles = articles1 + articles2 + articles3
 article_count = str(len(articles))
 message = '検索したい言葉を入力してください。現在の記事数　' + article_count
 
