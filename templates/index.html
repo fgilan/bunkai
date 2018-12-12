@@ -11,6 +11,10 @@
         </form>
         <p class='lead'>
           {% if word %}
+            Frequent combinations:
+            {% if patterns %}
+              {{ patterns }}
+            {% endif %}
             {{ hits_number }} example(s) found for "{{ word }}".
             <ul id='sentences'>
               {% for sentence in hits %}
